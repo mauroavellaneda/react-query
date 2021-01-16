@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
+import { useQuery } from "react-query";
+
+const fetchPlanets = async () => {
+  const response = await fetch("http://swapi.dev/api/planets/");
+  return response.json();
+};
 
 const Planets = () => {
-    return (
-        <div>
-            <h2>Planets</h2>
-        </div>
-    )
-}
+  const { data, status } = useQuery("planets", fetchPlanets);
 
-export default Planets
+  return (
+    <div>
+      <h2>Planets</h2>
+      <p>{status}</p>
+    </div>
+  );
+};
+
+export default Planets;
