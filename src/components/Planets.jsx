@@ -13,8 +13,6 @@ const Planets = () => {
   return (
     <div>
       <h2>Planets</h2>
-      {/* <p>{status}</p> */}
-
       {status === "loading" && <div>Loading data...</div>}
       {status === "error" && <div>Error fetching data</div>}
       {status === "success" && (
